@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_points.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/23 17:13:35 by amohiam           #+#    #+#             */
+/*   Updated: 2021/12/23 18:32:36 by amohiam          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 int	count_ln(char *path)
@@ -8,15 +20,15 @@ int	count_ln(char *path)
 
 	fd = open(path, O_RDONLY);
 	ctr = 0;
-	buf = (char *)malloc(1);
-	while (read(fd, buf, 1))
+	buf = 0;
+	while (read(fd, &buf, 1))
 	{
-		if(buf == '\n')
+		if (buf == '\n')
 			ctr++;
 		buf = 0;
 	}
 	close(fd);
-	return(ctr);
+	return (ctr);
 }
 
 int	count_col(char *path)
@@ -27,23 +39,29 @@ int	count_col(char *path)
 
 	fd = open(path, O_RDONLY);
 	ctr = 0;
-	buf = (char *)malloc(1);
-	while (read(fd, buf, 1) && buf != '\n')
+	buf = 0;
+	while (read(fd, &buf, 1) && buf != '\n')
 	{
 		if (buf == ' ')
 		{
 			ctr++;
 			while (buf == ' ')
-				read(fd, buf, 1);
+				read(fd, &buf, 1);
 		}
 	}
 	close(fd);
-	return(ctr + 1);
+	return (ctr + 1);
 }
 
-coords_3d	*parse_points(char *path)
+void	arr_nl(int x, int y)
 {
-	coords_3d	*res;
+	x = 0;
+	y++;
+}
+
+int	**parse_points(char *path)
+{
+	int			**res;
 	char		buf;
 	int			fd;
 	coords_2d	cur;
@@ -54,10 +72,16 @@ coords_3d	*parse_points(char *path)
 	max.x = count_col(path);
 	max.y = count_ln(path);
 	fd = open(path, O_RDONLY);
-	res = (coords_3d *)malloc(sizeof(coords_3d) * max.x * max.y);
-	while (read(fd, buf, 1))
+	res = (int **)malloc(sizeof(int) * max.x * max.y);
+	while (read(fd, &buf, 1))
 	{
-		
+		if ((buf >= '0' && buf <= '9') || buf == '-')
+		{
+			res[cur.y][cur.x] = num_from_fd(buf, fd);
+			cur.x++;
+			if (cur.x == max.x)
+				arr_nl(cur.x, cur.y);
+		}
 	}
-	
+	return (res);
 }
