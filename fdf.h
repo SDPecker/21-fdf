@@ -21,3 +21,4 @@ typedef struct coords_3d
 int	num_from_fd(char buf, int fd);
 int	**parse_points(char *path);
 void	print_arr(int **arr, int x, int y);
+unsigned int count_symbols(char *path);

@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:13:35 by amohiam           #+#    #+#             */
-/*   Updated: 2021/12/23 18:32:36 by amohiam          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:47:26 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int	**parse_points(char *path)
 				arr_nl(cur.x, cur.y);
 		}
 	}
+	close(fd);
 	return (res);
 }

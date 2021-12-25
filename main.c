@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:12 by amohiam           #+#    #+#             */
-/*   Updated: 2021/12/23 18:33:37 by amohiam          ###   ########.fr       */
+/*   Updated: 2021/12/25 15:25:50 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	main(void)
 {
-	int	fd;
-	int	**arr;
-
-	fd = open("42.fdf", O_RDONLY);
-	arr = parse_points("42.fdf");
-	//print_arr(arr, 11, 19);
+	printf("%i\n", count_symbols("42.fdf"));
 	return(0);
 }
