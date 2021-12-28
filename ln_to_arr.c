@@ -1,47 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_points.c                                     :+:      :+:    :+:   */
+/*   ln_to_arr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:13:35 by amohiam           #+#    #+#             */
+/*   Created: 2021/12/28 15:14:59 by amohiam           #+#    #+#             */
 /*   Updated: 2021/12/28 15:37:55 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	arr_nl(int x, int y)
+int	count_lines(char *ln)
 {
-	x = 0;
-	y++;
+	int	i;
+	int	res;
+
+	i = 0;
+	res = 0;
+	while (ln[i])
+	{
+		if (ln[i] == '\n')
+			res++;
+		i++;
+	}
+	return (res);
 }
 
-int	**parse_points(char *path)
+int	count_columns(char *ln)
 {
-	int			**res;
-	char		buf;
-	int			fd;
-	coords_2d	cur;
-	coords_2d	max;
+	int	i;
+	int	res;
 
-	cur.x = 0;
-	cur.y = 0;
-	max.x = count_col(path);
-	max.y = count_ln(path);
-	fd = open(path, O_RDONLY);
-	res = (int **)malloc(sizeof(int) * max.x * max.y);
-	while (read(fd, &buf, 1))
+	i = 0;
+	res = 0;
+	while (ln[i] && ln[i] != '\n')
 	{
-		if ((buf >= '0' && buf <= '9') || buf == '-')
+		if (ln[i] == ' ')
 		{
-			res[cur.y][cur.x] = num_from_fd(buf, fd);
-			cur.x++;
-			if (cur.x == max.x)
-				arr_nl(cur.x, cur.y);
+			res++;
+			while (ln[i] == ' ')
+				i++;
 		}
+		i++;
 	}
-	close(fd);
-	return (res);
+	return (res + 1);
+}
+
+int	**ln_to_arr(char *ln)
+{
+	int	**res;
+	int	i;
+	int	j;
+	
 }

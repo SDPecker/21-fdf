@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 15:03:40 by amohiam           #+#    #+#             */
-/*   Updated: 2021/12/25 15:47:26 by amohiam          ###   ########.fr       */
+/*   Updated: 2021/12/28 13:25:31 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,3 @@ char	*file_to_ln(char *path)
 	close(fd);
 	return (res);
 }
-
-int	

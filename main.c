@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:37:12 by amohiam           #+#    #+#             */
-/*   Updated: 2021/12/25 15:25:50 by amohiam          ###   ########.fr       */
+/*   Updated: 2021/12/28 13:24:49 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	main(void)
 {
-	printf("%i\n", count_symbols("42.fdf"));
+	printf("%s\n", file_to_ln("42.fdf"));
 	return(0);
 }
