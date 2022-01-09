@@ -1,53 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   extra.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:13:31 by amohiam           #+#    #+#             */
-/*   Updated: 2021/12/23 18:25:42 by amohiam          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
-int	num_from_fd(char buf, int fd)
+void	print_arr(int **arr, int i_max, int j_max)
 {
-	int	res;
-	int	sign;
+	int	i = 0;
+	int	j = 0;
 
-	res = 0;
-	sign = 1;
-	if (buf == '-')
-	{
-		sign = -1;
-		read(fd, &buf, 1);
-	}
-	while (buf >= '0' && buf <= '9')
-	{
-		res = res * 10 + buf - 48;
-		read(fd, &buf, 1);
-	}
-	return (res * sign);
-}
-
-void	print_arr(int **arr, int x, int y) //TESTING
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < y)
+	while (i < i_max)
 	{
 		j = 0;
-		while (j < x)
+		while (j < j_max)
 		{
-			printf("%5i ", arr[i][j]);
+			printf("%4i", arr[i][j]);
 			j++;
 		}
-		printf("\n");
 		i++;
+		write(1, "\n", 1);
 	}
 }
