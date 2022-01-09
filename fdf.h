@@ -18,7 +18,10 @@ typedef struct coords_3d
 	int	z;
 }coords_3d;
 
-int	num_from_fd(char buf, int fd);
-int	**parse_points(char *path);
-void	print_arr(int **arr, int x, int y);
-unsigned int count_symbols(char *path);
+char			*file_to_ln(char *path);
+int				**ln_to_arr(char *ln);
+int	count_lines(char *ln);
+int	count_columns(char *ln);
+
+//TESTING
+void	print_arr(int **arr, int i_max, int j_max);
