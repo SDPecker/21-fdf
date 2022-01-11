@@ -5,6 +5,9 @@
 #include <stdio.h> //TEST ONLY
 #include "libft/libft.h"
 
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 600
+
 typedef struct coords_2d
 {
 	int	x;
@@ -18,10 +21,11 @@ typedef struct coords_3d
 	int	z;
 }coords_3d;
 
-char			*file_to_ln(char *path);
-int				**ln_to_arr(char *ln);
-int	count_lines(char *ln);
-int	count_columns(char *ln);
+char	*file_to_ln(char *path);
+int		**ln_to_arr(char *ln);
+int		count_lines(char *ln);
+int		count_columns(char *ln);
 
 //TESTING
 void	print_arr(int **arr, int i_max, int j_max);
+int	parse_int(char *ln, int	i);
