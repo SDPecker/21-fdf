@@ -25,6 +25,8 @@ char	*file_to_ln(char *path);
 int		**ln_to_arr(char *ln);
 int		count_lines(char *ln);
 int		count_columns(char *ln);
+int	**alloc_int(int l, int c);
+void	clean_int(int **arr, int l);
 
 //TESTING
 void	print_arr(int **arr, int i_max, int j_max);

@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   array_alloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:37:12 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/16 20:38:10 by amohiam          ###   ########.fr       */
+/*   Created: 2022/01/16 20:17:01 by amohiam           #+#    #+#             */
+/*   Updated: 2022/01/16 20:26:43 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(void)
+int	**alloc_int(int l, int c)
 {
-	char	*ln;
-	int		n;
-	int		**arr;
+	int	i;
+	int	**res;
 
-	ln = file_to_ln("42.fdf");
-	printf("LN=%i COL:%i\n", count_lines(ln), count_columns(ln));
-	arr = ln_to_arr(ln);
-	print_arr(arr, count_lines(ln), count_columns(ln));
-	return(0);
+	i = 0;
+	res = (int **)malloc(sizeof(int *) * l);
+	while (i < l)
+	{
+		res[i] = (int *)malloc(sizeof(int) * c);
+		i++;
+	}
+	return (res);
+}
+
+void	clean_int(int **arr, int l)
+{
+	int	i;
+
+	i = 0;
+	while (i < l)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }

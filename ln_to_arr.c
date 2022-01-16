@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:14:59 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/13 15:38:41 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/16 20:35:45 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,18 @@ int	**ln_to_arr(char *ln)
 	i = 0;
 	j = 0;
 	c = 0;
-	res = (int **)malloc(sizeof(int *) * count_lines(ln));
+	res = alloc_int(count_lines(ln), count_columns(ln));
 	while (i < count_lines(ln))
 	{
-
 		j = 0;
-		res[i] = (int *)malloc(sizeof(int) * count_columns(ln));
 		while (j < count_columns(ln))
 		{
 			res[i][j] = ft_atoi(ln + c);
-			while (ln[c] != ' ')
+			while (ln[c] != ' ' && ln[c] != '\n')
 				c++;
 			while (ln[c] == ' ')
+				c++;
+			if (ln[c] == '\n')
 				c++;
 			j++;
 		}
