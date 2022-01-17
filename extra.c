@@ -10,7 +10,7 @@ void	print_arr(int **arr, int i_max, int j_max)
 		j = 0;
 		while (j < j_max)
 		{
-			printf("%4i", arr[i][j]);
+			printf("%3i", arr[i][j]);
 			j++;
 		}
 		i++;
