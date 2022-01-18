@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   screen_size_calc.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:37:12 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/18 18:10:33 by amohiam          ###   ########.fr       */
+/*   Created: 2022/01/18 19:37:51 by amohiam           #+#    #+#             */
+/*   Updated: 2022/01/18 19:57:10 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(void)
+coords_2d	screen_size_calc(coords_2d mins, coords_2d maxs)
 {
-	char	*ln;
-	int		n;
-	int		**arr;
+	coords_2d	res;
 
-	ln = file_to_ln("42.fdf");
-	printf("%s\n", ln);
-	printf("LN=%i COL:%i\n", count_lines(ln), count_columns(ln));
-	arr = ln_to_arr(ln);
-	
-
-	return(0);
+	res.x = (maxs.x - mins.x + 10) * STEP;
+	res.y = (maxs.y - mins.y + 10) * STEP;
+	return (res);
 }

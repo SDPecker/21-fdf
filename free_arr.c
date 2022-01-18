@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_arr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/23 17:37:12 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/18 18:10:33 by amohiam          ###   ########.fr       */
+/*   Created: 2022/01/18 17:42:58 by amohiam           #+#    #+#             */
+/*   Updated: 2022/01/18 17:47:18 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(void)
+void	clean_int(int **arr, int l)
 {
-	char	*ln;
-	int		n;
-	int		**arr;
+	int	i;
 
-	ln = file_to_ln("42.fdf");
-	printf("%s\n", ln);
-	printf("LN=%i COL:%i\n", count_lines(ln), count_columns(ln));
-	arr = ln_to_arr(ln);
-	
+	i = 0;
+	while (i < l)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+}
 
-	return(0);
+void	clean_int(coords_2d **arr, int l)
+{
+	int	i;
+
+	i = 0;
+	while (i < l)
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }

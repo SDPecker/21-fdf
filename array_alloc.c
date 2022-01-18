@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 20:17:01 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/16 20:26:43 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/18 17:43:31 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,4 @@ int	**alloc_int(int l, int c)
 		i++;
 	}
 	return (res);
-}
-
-void	clean_int(int **arr, int l)
-{
-	int	i;
-
-	i = 0;
-	while (i < l)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }
