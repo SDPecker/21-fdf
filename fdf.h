@@ -31,3 +31,4 @@ coords_2d	**arr_to_proj(int **arr, int l, int c);
 //TESTING
 void		print_arr(int **arr, int i_max, int j_max);
 int			parse_int(char *ln, int	i);
+coords_2d	**init_coords(int l, int c);

@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:00:13 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/18 17:30:07 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/19 19:47:31 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ coords_2d	**arr_to_proj(int **arr, int l, int c)
 		while (j < c)
 		{
 			res[i][j].x = c - l;
-			res[i][j].y = (c + l) / 2;
+			res[i][j].y = ((c + l) / 2) + arr[i][j];
 			j++;
 		}
 		i++;
 	}
+	return (res);
 }
 
-coords_2d	get_mins (coords_2d **proj, int l, int c)
+coords_2d	get_mins(coords_2d **proj, int l, int c)
 {
 	int			i;
 	int			j;
@@ -75,7 +76,7 @@ coords_2d	get_mins (coords_2d **proj, int l, int c)
 	return (res);
 }
 
-coords_2d	get_mins (coords_2d **proj, int l, int c)
+coords_2d	get_maxs(coords_2d **proj, int l, int c)
 {
 	int			i;
 	int			j;
@@ -92,7 +93,7 @@ coords_2d	get_mins (coords_2d **proj, int l, int c)
 		{
 			if (proj[i][j].x > res.x)
 				res.x = proj[i][j].x;
-			if (proj[i][j].y < res.y)
+			if (proj[i][j].y > res.y)
 				res.y = proj[i][j].y;
 			j++;
 		}

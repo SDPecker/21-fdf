@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:42:58 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/18 17:47:18 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/19 19:50:05 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	clean_int(int **arr, int l)
 	free(arr);
 }
 
-void	clean_int(coords_2d **arr, int l)
+void	clean_coords(coords_2d **arr, int l)
 {
 	int	i;
 

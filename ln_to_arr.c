@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 15:14:59 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/16 20:35:45 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/19 19:43:47 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,11 @@ int	**ln_to_arr(char *ln)
 			res[i][j] = ft_atoi(ln + c);
 			while (ln[c] != ' ' && ln[c] != '\n')
 				c++;
-			while (ln[c] == ' ')
-				c++;
-			if (ln[c] == '\n')
+			while (ln[c] == ' ' || ln[c] == '\n')
 				c++;
 			j++;
 		}
 		i++;
 	}
-	
 	return (res);
 }
