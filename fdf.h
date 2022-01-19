@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/19 21:38:18 by amohiam           #+#    #+#             */
+/*   Updated: 2022/01/19 21:41:13 by amohiam          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -12,13 +24,6 @@ typedef struct coords_2d
 	int	x;
 	int	y;
 }coords_2d;
-
-typedef struct coords_3d
-{
-	int	x;
-	int	y;
-	int	z;
-}coords_3d;
 
 char		*file_to_ln(char *path);
 int			**ln_to_arr(char *ln);
