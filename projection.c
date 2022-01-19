@@ -6,7 +6,7 @@
 /*   By: amohiam <amohiam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 17:00:13 by amohiam           #+#    #+#             */
-/*   Updated: 2022/01/19 19:47:31 by amohiam          ###   ########.fr       */
+/*   Updated: 2022/01/19 22:23:25 by amohiam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,14 @@ coords_2d	get_maxs(coords_2d **proj, int l, int c)
 		}
 		i++;
 	}
+	return (res);
+}
+
+coords_2d	dec_to_iso(int x, int y, int z)
+{
+	coords_2d	res;
+
+	res.x = x - y;
+	res.y = (x + y) / 2;
 	return (res);
 }
